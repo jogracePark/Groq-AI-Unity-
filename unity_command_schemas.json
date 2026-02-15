@@ -1,1 +1,601 @@
-[{"commandName": "CreateGameObject", "description": "새로운 GameObject를 생성합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CreateGameObject", "optional": false}, {"name": "name", "type": "string", "example": "새 GameObject 이름", "optional": false}, {"name": "primitiveType", "type": "string", "example": "Cube, Sphere, Plane 등", "optional": true}, {"name": "position", "type": "float array", "example": "[x, y, z]", "optional": true}, {"name": "rotation", "type": "float array", "example": "[x, y, z]", "optional": true}, {"name": "scale", "type": "float array", "example": "[x, y, z]", "optional": true}, {"name": "parent", "type": "string", "example": "부모 GameObject 이름", "optional": true}, {"name": "tag", "type": "string", "example": "태그 이름", "optional": true}, {"name": "layer", "type": "string", "example": "레이어 이름", "optional": true}, {"name": "setActive", "type": "boolean", "example": "true/false", "optional": true}]}, {"commandName": "ModifyGameObject", "description": "기존 GameObject의 속성을 수정합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "ModifyGameObject", "optional": false}, {"name": "target", "type": "string", "example": "대상 GameObject 이름 또는 ID", "optional": false}, {"name": "name", "type": "string", "example": "새 이름", "optional": true}, {"name": "position", "type": "float array", "example": "[x, y, z]", "optional": true}, {"name": "rotation", "type": "float array", "example": "[x, y, z]", "optional": true}, {"name": "scale", "type": "float array", "example": "[x, y, z]", "optional": true}, {"name": "parent", "type": "string", "example": "새 부모 GameObject 이름", "optional": true}, {"name": "tag", "type": "string", "example": "새 태그 이름", "optional": true}, {"name": "layer", "type": "string", "example": "새 레이어 이름", "optional": true}, {"name": "setActive", "type": "boolean", "example": "true/false", "optional": true}]}, {"commandName": "DeleteGameObject", "description": "GameObject를 삭제합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "DeleteGameObject", "optional": false}, {"name": "target", "type": "string", "example": "대상 GameObject 이름 또는 ID", "optional": false}]}, {"commandName": "AddComponent", "description": "GameObject에 컴포넌트를 추가합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "AddComponent", "optional": false}, {"name": "target", "type": "string", "example": "대상 GameObject 이름 또는 ID", "optional": false}, {"name": "componentType", "type": "string", "example": "Light, Camera, Rigidbody 등", "optional": false}, {"name": "patches", "type": "Patch object array", "example": "[{\"propertyName\": \"Property Name\", \"value\": \"Value\"}]", "optional": true}]}, {"commandName": "RemoveComponent", "description": "GameObject에서 컴포넌트를 제거합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "RemoveComponent", "optional": false}, {"name": "target", "type": "string", "example": "대상 GameObject 이름 또는 ID", "optional": false}, {"name": "componentType", "type": "string", "example": "Light, Camera, Rigidbody 등", "optional": false}]}, {"commandName": "ModifyComponentProperties", "description": "GameObject의 컴포넌트 속성을 수정합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "ModifyComponentProperties", "optional": false}, {"name": "target", "type": "string", "example": "대상 GameObject 이름 또는 ID", "optional": false}, {"name": "componentType", "type": "string", "example": "수정할 컴포넌트 타입", "optional": false}, {"name": "patches", "type": "Patch object array", "example": "[{\"propertyName\": \"Property Name\", \"value\": \"Value\"}]", "optional": false}]}, {"commandName": "CreateCanvas", "description": "UI Canvas를 생성합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CreateCanvas", "optional": false}, {"name": "name", "type": "string", "example": "Canvas 이름", "optional": false}, {"name": "renderMode", "type": "string", "example": "ScreenSpaceOverlay, ScreenSpaceCamera, WorldSpace", "optional": true}]}, {"commandName": "CreateText", "description": "UI Text (TextMeshPro)를 생성합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CreateText", "optional": false}, {"name": "name", "type": "string", "example": "Text 이름", "optional": false}, {"name": "parent", "type": "string", "example": "부모 UI GameObject 이름", "optional": false}, {"name": "uiText", "type": "string", "example": "표시할 텍스트 내용", "optional": true}, {"name": "uiPosition", "type": "float array", "example": "[x, y]", "optional": true}]}, {"commandName": "CreateButton", "description": "UI Button을 생성합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CreateButton", "optional": false}, {"name": "name", "type": "string", "example": "Button 이름", "optional": false}, {"name": "parent", "type": "string", "example": "부모 UI GameObject 이름", "optional": false}, {"name": "uiText", "type": "string", "example": "버튼에 표시할 텍스트", "optional": true}]}, {"commandName": "CreateImage", "description": "UI Image를 생성합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CreateImage", "optional": false}, {"name": "name", "type": "string", "example": "Image 이름", "optional": false}, {"name": "parent", "type": "string", "example": "부모 UI GameObject 이름", "optional": false}, {"name": "uiSprite", "type": "string", "example": "스프라이트 에셋 경로 (예: Assets/Sprites/my_sprite.png)", "optional": true}]}, {"commandName": "CreateLight", "description": "씬에 Light를 생성합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CreateLight", "optional": false}, {"name": "name", "type": "string", "example": "Light 이름", "optional": false}, {"name": "lightType", "type": "string", "example": "Directional, Point, Spot, Area", "optional": true}, {"name": "position", "type": "float array", "example": "[x, y, z]", "optional": true}, {"name": "lightColor", "type": "float array", "example": "[r, g, b, a]", "optional": true}, {"name": "lightIntensity", "type": "float", "example": "강도", "optional": true}]}, {"commandName": "CreatePrefab", "description": "GameObject로부터 프리팹을 생성합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CreatePrefab", "optional": false}, {"name": "target", "type": "string", "example": "원본 GameObject 이름", "optional": false}, {"name": "assetPath", "type": "string", "example": "생성할 프리팹 에셋 경로 (예: Assets/Prefabs/MyPrefab.prefab)", "optional": false}]}, {"commandName": "InstantiatePrefab", "description": "프리팹을 씬에 인스턴스화합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "InstantiatePrefab", "optional": false}, {"name": "assetPath", "type": "string", "example": "인스턴스화할 프리팹 에셋 경로", "optional": false}, {"name": "name", "type": "string", "example": "인스턴스 이름", "optional": true}, {"name": "position", "type": "float array", "example": "[x, y, z]", "optional": true}, {"name": "rotation", "type": "float array", "example": "[x, y, z]", "optional": true}]}, {"commandName": "CreateTexture", "description": "텍스처 에셋을 생성합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CreateTexture", "optional": false}, {"name": "path", "type": "string", "example": "생성할 텍스처 에셋 경로", "optional": false}, {"name": "textureWidth", "type": "int", "example": "너비", "optional": true}, {"name": "textureHeight", "type": "int", "example": "높이", "optional": true}, {"name": "textureColor", "type": "float array", "example": "[r, g, b, a]", "optional": true}, {"name": "texturePattern", "type": "string", "example": "checkerboard, stripes 등", "optional": true}, {"name": "texturePalette", "type": "float array", "example": "[r1, g1, b1, a1, r2, g2, b2, a2]", "optional": true}]}, {"commandName": "ModifyTexture", "description": "텍스처의 픽셀을 수정합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "ModifyTexture", "optional": false}, {"name": "path", "type": "string", "example": "수정할 텍스처 에셋 경로", "optional": false}, {"name": "x", "type": "int", "example": "시작 X 좌표", "optional": false}, {"name": "y", "type": "int", "example": "시작 Y 좌표", "optional": false}, {"name": "textureWidth", "type": "int", "example": "수정할 영역 너비", "optional": false}, {"name": "textureHeight", "type": "int", "example": "수정할 영역 높이", "optional": false}, {"name": "textureColor", "type": "float array", "example": "[r, g, b, a]", "optional": true}, {"name": "pixels", "type": "Color object array", "example": "[Color1, Color2, ...]", "optional": true}]}, {"commandName": "DeleteTexture", "description": "텍스처 에셋을 삭제합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "DeleteTexture", "optional": false}, {"name": "path", "type": "string", "example": "삭제할 텍스처 에셋 경로", "optional": false}]}, {"commandName": "FindShader", "description": "셰이더를 찾습니다.", "parameters": [{"name": "commandType", "type": "string", "example": "FindShader", "optional": false}, {"name": "shaderName", "type": "string", "example": "찾을 셰이더 이름", "optional": false}]}, {"commandName": "GetShaderParameters", "description": "셰이더의 파라미터 목록을 가져옵니다.", "parameters": [{"name": "commandType", "type": "string", "example": "GetShaderParameters", "optional": false}, {"name": "shaderName", "type": "string", "example": "파라미터를 가져올 셰이더 이름", "optional": false}]}, {"commandName": "CreateScriptableObject", "description": "ScriptableObject 에셋을 생성합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CreateScriptableObject", "optional": false}, {"name": "typeName", "type": "string", "example": "생성할 ScriptableObject의 타입 이름", "optional": false}, {"name": "folderPath", "type": "string", "example": "생성할 폴더 경로", "optional": false}, {"name": "assetName", "type": "string", "example": "에셋 이름", "optional": false}, {"name": "overwrite", "type": "boolean", "example": "true/false", "optional": true}, {"name": "patches", "type": "Patch object array", "example": "[{\"propertyName\": \"Property Name\", \"value\": \"Value\"}]", "optional": true}]}, {"commandName": "ModifyScriptableObject", "description": "ScriptableObject 에셋의 속성을 수정합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "ModifyScriptableObject", "optional": false}, {"name": "assetPath", "type": "string", "example": "수정할 ScriptableObject 에셋 경로", "optional": false}, {"name": "patches", "type": "Patch object array", "example": "[{\"propertyName\": \"Property Name\", \"value\": \"Value\"}]", "optional": false}]}, {"commandName": "ExecuteBatch", "description": "여러 명령을 순차적으로 실행합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "ExecuteBatch", "optional": false}, {"name": "batch", "type": "GroqUnityCommand object array", "example": "[GroqUnityCommand1, GroqUnityCommand2, ...]", "optional": false}, {"name": "breakOnError", "type": "boolean", "example": "true/false", "optional": true}]}, {"commandName": "PlayEditor", "description": "Unity 에디터를 플레이 모드로 전환합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "PlayEditor", "optional": false}]}, {"commandName": "PauseEditor", "description": "Unity 에디터의 플레이 모드를 일시정지/재개합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "PauseEditor", "optional": false}]}, {"commandName": "StopEditor", "description": "Unity 에디터의 플레이 모드를 중지합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "StopEditor", "optional": false}]}, {"commandName": "AddTag", "description": "프로젝트 설정에 새 태그를 추가합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "AddTag", "optional": false}, {"name": "tagName", "type": "string", "example": "추가할 태그 이름", "optional": false}]}, {"commandName": "RemoveTag", "description": "프로젝트 설정에서 태그를 제거합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "RemoveTag", "optional": false}, {"name": "tagName", "type": "string", "example": "제거할 태그 이름", "optional": false}]}, {"commandName": "AddLayer", "description": "프로젝트 설정에 새 레이어를 추가합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "AddLayer", "optional": false}, {"name": "layerName", "type": "string", "example": "추가할 레이어 이름", "optional": false}]}, {"commandName": "ExecuteMenuItem", "description": "Unity 에디터의 메뉴 항목을 실행합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "ExecuteMenuItem", "optional": false}, {"name": "menuPath", "type": "string", "example": "실행할 메뉴 항목 경로 (예: GameObject/Create Empty)", "optional": false}]}, {"commandName": "SearchAssets", "description": "에셋을 검색합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "SearchAssets", "optional": false}, {"name": "searchPattern", "type": "string", "example": "검색 패턴 (예: MyTexture)", "optional": false}, {"name": "filterType", "type": "string", "example": "필터 타입 (예: Texture, Material)", "optional": true}]}, {"commandName": "GetAssetInfo", "description": "특정 경로의 에셋 정보를 가져옵니다.", "parameters": [{"name": "commandType", "type": "string", "example": "GetAssetInfo", "optional": false}, {"name": "path", "type": "string", "example": "에셋 경로", "optional": false}]}, {"commandName": "CreateAsset", "description": "새로운 에셋을 생성합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CreateAsset", "optional": false}, {"name": "path", "type": "string", "example": "생성할 에셋 경로", "optional": false}, {"name": "assetType", "type": "string", "example": "material, folder 등", "optional": false}]}, {"commandName": "DeleteAsset", "description": "특정 경로의 에셋을 삭제합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "DeleteAsset", "optional": false}, {"name": "path", "type": "string", "example": "삭제할 에셋 경로", "optional": false}]}, {"commandName": "DuplicateAsset", "description": "에셋을 복제합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "DuplicateAsset", "optional": false}, {"name": "source", "type": "string", "example": "원본 에셋 경로", "optional": false}, {"name": "destination", "type": "string", "example": "대상 에셋 경로", "optional": false}]}, {"commandName": "MoveAsset", "description": "에셋을 이동합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "MoveAsset", "optional": false}, {"name": "source", "type": "string", "example": "원본 에셋 경로", "optional": false}, {"name": "destination", "type": "string", "example": "대상 에셋 경로", "optional": false}]}, {"commandName": "RenameAsset", "description": "에셋의 이름을 변경합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "RenameAsset", "optional": false}, {"name": "path", "type": "string", "example": "원본 에셋 경로", "optional": false}, {"name": "newName", "type": "string", "example": "새 이름", "optional": false}]}, {"commandName": "ImportAsset", "description": "특정 경로의 에셋을 임포트합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "ImportAsset", "optional": false}, {"name": "path", "type": "string", "example": "임포트할 에셋 경로", "optional": false}]}, {"commandName": "CreateFolder", "description": "새로운 폴더를 생성합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CreateFolder", "optional": false}, {"name": "path", "type": "string", "example": "생성할 폴더 경로", "optional": false}]}, {"commandName": "GetSceneHierarchy", "description": "현재 활성화된 씬의 계층 구조를 출력합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "GetSceneHierarchy", "optional": false}, {"name": "maxDepth", "type": "int", "example": "최대 출력 깊이", "optional": true}, {"name": "includeTransform", "type": "boolean", "example": "트랜스폼 정보 포함 여부", "optional": true}]}, {"commandName": "GetActiveSceneInfo", "description": "현재 활성화된 씬의 정보를 가져옵니다.", "parameters": [{"name": "commandType", "type": "string", "example": "GetActiveSceneInfo", "optional": false}]}, {"commandName": "LoadScene", "description": "씬을 로드합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "LoadScene", "optional": false}, {"name": "name", "type": "string", "example": "로드할 씬 이름", "optional": true}, {"name": "path", "type": "string", "example": "로드할 씬 경로", "optional": true}, {"name": "buildIndex", "type": "int", "example": "빌드 인덱스", "optional": true}]}, {"commandName": "SaveScene", "description": "현재 활성화된 씬을 저장합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "SaveScene", "optional": false}, {"name": "path", "type": "string", "example": "저장할 씬 경로", "optional": true}]}, {"commandName": "CreateScene", "description": "새로운 씬을 생성하고 저장합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CreateScene", "optional": false}, {"name": "path", "type": "string", "example": "생성할 씬 경로", "optional": false}]}, {"commandName": "GetBuildSettingsScenes", "description": "빌드 설정에 포함된 씬 목록을 가져옵니다.", "parameters": [{"name": "commandType", "type": "string", "example": "GetBuildSettingsScenes", "optional": false}]}, {"commandName": "CaptureScreenshot", "description": "현재 씬의 스크린샷을 캡처합니다.", "parameters": [{"name": "commandType", "type": "string", "example": "CaptureScreenshot", "optional": false}, {"name": "screenshotFileName", "type": "string", "example": "파일 이름 (예: MyScreenshot.png)", "optional": true}, {"name": "screenshotSuperSize", "type": "int", "example": "슈퍼 사이즈", "optional": true}]}]
+[
+    {
+        "commandType": "CreateGameObject",
+        "description": "Creates a new GameObject.",
+        "parameters": {
+            "name": {"type": "string", "description": "Name of the new GameObject."},
+            "primitiveType": {"type": "string", "description": "Type of primitive to create (e.g., 'Cube', 'Sphere', 'Plane').", "optional": true},
+            "position": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] World position.", "optional": true},
+            "rotation": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] Euler angles rotation.", "optional": true},
+            "scale": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] Local scale.", "optional": true},
+            "parent": {"type": "string", "description": "Name of the parent GameObject.", "optional": true},
+            "tag": {"type": "string", "description": "Tag to assign to the GameObject.", "optional": true},
+            "layer": {"type": "string", "description": "Layer to assign to the GameObject.", "optional": true},
+            "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
+        }
+    },
+    {
+        "commandType": "ModifyGameObject",
+        "description": "Modifies properties of an existing GameObject.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "name": {"type": "string", "description": "New name for the GameObject.", "optional": true},
+            "position": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] World position.", "optional": true},
+            "rotation": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] Euler angles rotation.", "optional": true},
+            "scale": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] Local scale.", "optional": true},
+            "parent": {"type": "string", "description": "New parent GameObject name.", "optional": true},
+            "tag": {"type": "string", "description": "New tag to assign.", "optional": true},
+            "layer": {"type": "string", "description": "New layer to assign.", "optional": true},
+            "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
+        }
+    },
+    {
+        "commandType": "DeleteGameObject",
+        "description": "Deletes a GameObject.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."}
+        }
+    },
+    {
+        "commandType": "SetConditionalActive",
+        "description": "Sets a GameObject's active state based on a runtime condition.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "conditionType": {"type": "string", "description": "Type of condition (e.g., 'ScreenWidthGreaterThan', 'ScreenWidthLessThan', 'ScreenHeightGreaterThan', 'ScreenHeightLessThan')."},
+            "conditionValue": {"type": "number", "description": "Value to compare against for the condition."}
+        }
+    },
+    {
+        "commandType": "AddComponent",
+        "description": "Adds a component to a GameObject.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "componentType": {"type": "string", "description": "Type of component to add (e.g., 'Light', 'Camera', 'Rigidbody')."},
+            "patches": {"type": "array", "items": {"$ref": "#/definitions/Patch"}, "description": "Array of property patches to apply to the new component.", "optional": true}
+        }
+    },
+    {
+        "commandType": "RemoveComponent",
+        "description": "Removes a component from a GameObject.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "componentType": {"type": "string", "description": "Type of component to remove."}
+        }
+    },
+    {
+        "commandType": "ModifyComponentProperties",
+        "description": "Modifies component properties of a GameObject.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "componentType": {"type": "string", "description": "Type of component to modify."},
+            "patches": {"type": "array", "items": {"$ref": "#/definitions/Patch"}, "description": "Array of property patches to apply."}
+        }
+    },
+    {
+        "commandType": "SearchAssets",
+        "description": "Searches for assets.",
+        "parameters": {
+            "searchPattern": {"type": "string", "description": "Search pattern (e.g., 'MyTexture')."},
+            "filterType": {"type": "string", "description": "Filter type (e.g., 'Texture', 'Material').", "optional": true}
+        }
+    },
+    {
+        "commandType": "GetAssetInfo",
+        "description": "Gets asset information for a specific path.",
+        "parameters": {
+            "path": {"type": "string", "description": "Asset path."}
+        }
+    },
+    {
+        "commandType": "CreateAsset",
+        "description": "Creates a new asset.",
+        "parameters": {
+            "path": {"type": "string", "description": "Asset path to create."},
+            "assetType": {"type": "string", "description": "Type of asset to create (e.g., 'material', 'folder')."}
+        }
+    },
+    {
+        "commandType": "DeleteAsset",
+        "description": "Deletes an asset at a specific path.",
+        "parameters": {
+            "path": {"type": "string", "description": "Asset path to delete."}
+        }
+    },
+    {
+        "commandType": "DuplicateAsset",
+        "description": "Duplicates an asset.",
+        "parameters": {
+            "source": {"type": "string", "description": "Source asset path."},
+            "destination": {"type": "string", "description": "Destination asset path."}
+        }
+    },
+    {
+        "commandType": "MoveAsset",
+        "description": "Moves an asset.",
+        "parameters": {
+            "source": {"type": "string", "description": "Source asset path."},
+            "destination": {"type": "string", "description": "Destination asset path."}
+        }
+    },
+    {
+        "commandType": "RenameAsset",
+        "description": "Renames an asset.",
+        "parameters": {
+            "path": {"type": "string", "description": "Original asset path."},
+            "newName": {"type": "string", "description": "New name."}
+        }
+    },
+    {
+        "commandType": "ImportAsset",
+        "description": "Imports an asset at a specific path.",
+        "parameters": {
+            "path": {"type": "string", "description": "Asset path to import."}
+        }
+    },
+    {
+        "commandType": "CreateFolder",
+        "description": "Creates a new folder.",
+        "parameters": {
+            "path": {"type": "string", "description": "Folder path to create."}
+        }
+    },
+    {
+        "commandType": "GetSceneHierarchy",
+        "description": "Outputs the hierarchy of the currently active scene.",
+        "parameters": {
+            "maxDepth": {"type": "integer", "description": "Maximum output depth.", "optional": true},
+            "includeTransform": {"type": "boolean", "description": "Include transform information.", "optional": true}
+        }
+    },
+    {
+        "commandType": "GetActiveSceneInfo",
+        "description": "Gets information about the currently active scene.",
+        "parameters": {}
+    },
+    {
+        "commandType": "LoadScene",
+        "description": "Loads a scene.",
+        "parameters": {
+            "name": {"type": "string", "description": "Scene Name to load.", "optional": true},
+            "path": {"type": "string", "description": "Scene path to load.", "optional": true},
+            "buildIndex": {"type": "integer", "description": "Build index.", "optional": true}
+        }
+    },
+    {
+        "commandType": "SaveScene",
+        "description": "Saves the currently active scene.",
+        "parameters": {
+            "path": {"type": "string", "description": "Scene path to save.", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreateScene",
+        "description": "Creates and saves a new scene.",
+        "parameters": {
+            "path": {"type": "string", "description": "Scene path to create."}
+        }
+    },
+    {
+        "commandType": "GetBuildSettingsScenes",
+        "description": "Gets a list of scenes included in build settings.",
+        "parameters": {}
+    },
+    {
+        "commandType": "CaptureScreenshot",
+        "description": "Captures a screenshot of the current scene.",
+        "parameters": {
+            "screenshotFileName": {"type": "string", "description": "File Name (e.g., MyScreenshot.png).", "optional": true},
+            "screenshotSuperSize": {"type": "integer", "description": "Supersize.", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreateCanvas",
+        "description": "Creates a UI Canvas.",
+        "parameters": {
+            "name": {"type": "string", "description": "Canvas Name."},
+            "renderMode": {"type": "string", "description": "Render mode ('ScreenSpaceOverlay', 'ScreenSpaceCamera', 'WorldSpace').", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreateText",
+        "description": "Creates UI Text (TextMeshPro).",
+        "parameters": {
+            "name": {"type": "string", "description": "Text Name."},
+            "parent": {"type": "string", "description": "Parent UI GameObject Name."},
+            "uiText": {"type": "string", "description": "Text content to display.", "optional": true},
+            "uiPosition": {"type": "array", "items": {"type": "number"}, "description": "[x, y] UI anchored position.", "optional": true},
+            "fontAssetPath": {"type": "string", "description": "Path to TextMeshPro font asset (e.g., 'Assets/Fonts/MyFont.asset').", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreateButton",
+        "description": "Creates a UI Button.",
+        "parameters": {
+            "name": {"type": "string", "description": "Button Name."},
+            "parent": {"type": "string", "description": "Parent UI GameObject Name."},
+            "uiText": {"type": "string", "description": "Text to display on button.", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreateImage",
+        "description": "Creates a UI Image.",
+        "parameters": {
+            "name": {"type": "string", "description": "Image Name."},
+            "parent": {"type": "string", "description": "Parent UI GameObject Name."},
+            "uiSprite": {"type": "string", "description": "Sprite asset path (e.g., 'Assets/Sprites/my_sprite.png').", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreateToggle",
+        "description": "Creates a UI Toggle.",
+        "parameters": {
+            "name": {"type": "string", "description": "Toggle Name."},
+            "parent": {"type": "string", "description": "Parent UI GameObject Name."},
+            "uiText": {"type": "string", "description": "Text to display next to the toggle.", "optional": true},
+            "uiPosition": {"type": "array", "items": {"type": "number"}, "description": "[x, y] UI anchored position.", "optional": true},
+            "sizeDelta": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of the toggle.", "optional": true},
+            "isOn": {"type": "boolean", "description": "Initial state of the toggle (true for on, false for off).", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreateSlider",
+        "description": "Creates a UI Slider.",
+        "parameters": {
+            "name": {"type": "string", "description": "Slider Name."},
+            "parent": {"type": "string", "description": "Parent UI GameObject Name."},
+            "uiPosition": {"type": "array", "items": {"type": "number"}, "description": "[x, y] UI anchored position.", "optional": true},
+            "sizeDelta": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of the slider.", "optional": true},
+            "minValue": {"type": "number", "description": "Minimum value of the slider.", "optional": true},
+            "maxValue": {"type": "number", "description": "Maximum value of the slider.", "optional": true},
+            "value": {"type": "number", "description": "Current value of the slider.", "optional": true},
+            "wholeNumbers": {"type": "boolean", "description": "If true, the slider will only use whole numbers.", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreateScrollView",
+        "description": "Creates a UI Scroll View.",
+        "parameters": {
+            "name": {"type": "string", "description": "Scroll View Name."},
+            "parent": {"type": "string", "description": "Parent UI GameObject Name."},
+            "uiPosition": {"type": "array", "items": {"type": "number"}, "description": "[x, y] UI anchored position.", "optional": true},
+            "sizeDelta": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of the scroll view.", "optional": true},
+            "contentName": {"type": "string", "description": "Name for the content GameObject inside the scroll view.", "optional": true},
+            "horizontal": {"type": "boolean", "description": "Enable horizontal scrolling.", "optional": true},
+            "vertical": {"type": "boolean", "description": "Enable vertical scrolling.", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreateInputField",
+        "description": "Creates a UI Input Field (TextMeshPro).",
+        "parameters": {
+            "name": {"type": "string", "description": "Input Field Name."},
+            "parent": {"type": "string", "description": "Parent UI GameObject Name."},
+            "uiPosition": {"type": "array", "items": {"type": "number"}, "description": "[x, y] UI anchored position.", "optional": true},
+            "sizeDelta": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of the input field.", "optional": true},
+            "placeholderText": {"type": "string", "description": "Text to display when the input field is empty.", "optional": true},
+            "contentType": {"type": "string", "description": "Type of content allowed (e.g., 'Standard', 'Autocorrected', 'IntegerNumber').", "optional": true},
+            "characterLimit": {"type": "integer", "description": "Maximum number of characters allowed.", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreateDropdown",
+        "description": "Creates a UI Dropdown (TextMeshPro).",
+        "parameters": {
+            "name": {"type": "string", "description": "Dropdown Name."},
+            "parent": {"type": "string", "description": "Parent UI GameObject Name."},
+            "uiPosition": {"type": "array", "items": {"type": "number"}, "description": "[x, y] UI anchored position.", "optional": true},
+            "sizeDelta": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of the dropdown.", "optional": true},
+            "options": {"type": "array", "items": {"type": "string"}, "description": "Array of string options for the dropdown.", "optional": true}
+        }
+    },
+    {
+        "commandType": "InstantiateUIPrefab",
+        "description": "Instantiates a UI Prefab in the scene.",
+        "parameters": {
+            "assetPath": {"type": "string", "description": "Path to the UI Prefab asset (e.g., 'Assets/Prefabs/MyUIPrefab.prefab')."},
+            "name": {"type": "string", "description": "Name for the instantiated GameObject.", "optional": true},
+            "parent": {"type": "string", "description": "Parent UI GameObject Name.", "optional": true},
+            "uiPosition": {"type": "array", "items": {"type": "number"}, "description": "[x, y] UI anchored position.", "optional": true},
+            "sizeDelta": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of the instantiated UI element.", "optional": true},
+            "anchorPreset": {"type": "string", "description": "Anchor preset for the RectTransform (e.g., 'StretchAll', 'MiddleCenter').", "optional": true}
+        }
+    },
+    {
+        "commandType": "SetRectTransformAnchors",
+        "description": "Sets the RectTransform anchors and offsets of a UI GameObject using presets and optional padding.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target UI GameObject."},
+            "anchorPreset": {"type": "string", "description": "Anchor preset (e.g., 'TopLeft', 'MiddleCenter', 'StretchAll', 'StretchLeft', etc.)."},
+            "padding": {"type": "array", "items": {"type": "number"}, "description": "[left, right, top, bottom] padding values. Only applies to stretched anchors.", "optional": true}
+        }
+    },
+    {
+        "commandType": "AddLayoutGroup",
+        "description": "Adds a layout group component to a GameObject and configures it.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "layoutGroupType": {"type": "string", "description": "Type of layout group ('Horizontal', 'Vertical', 'Grid')."},
+            "spacing": {"type": "number", "description": "Spacing between child elements.", "optional": true},
+            "padding": {"type": "array", "items": {"type": "number"}, "description": "[left, right, top, bottom] padding for the layout group.", "optional": true},
+            "cellSize": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Cell size for GridLayoutGroup.", "optional": true},
+            "startCorner": {"type": "string", "description": "Start corner for GridLayoutGroup ('UpperLeft', 'UpperRight', 'LowerLeft', 'LowerRight').", "optional": true},
+            "startAxis": {"type": "string", "description": "Start axis for GridLayoutGroup ('Horizontal', 'Vertical').", "optional": true},
+            "childAlignment": {"type": "string", "description": "Child alignment for layout groups ('UpperLeft', 'MiddleCenter', etc.).", "optional": true},
+            "constraint": {"type": "string", "description": "Constraint for GridLayoutGroup ('Flexible', 'FixedColumnCount', 'FixedRowCount').", "optional": true},
+            "constraintCount": {"type": "integer", "description": "Constraint count for GridLayoutGroup.", "optional": true},
+            "childForceExpandWidth": {"type": "boolean", "description": "Force children to expand width (for Horizontal/VerticalLayoutGroup).", "optional": true},
+            "childForceExpandHeight": {"type": "boolean", "description": "Force children to expand height (for Horizontal/VerticalLayoutGroup).", "optional": true}
+        }
+    },
+    {
+        "commandType": "AddContentSizeFitter",
+        "description": "Adds a ContentSizeFitter component to a GameObject and configures it.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "horizontalFit": {"type": "string", "description": "Horizontal fit mode ('Unconstrained', 'MinSize', 'PreferredSize').", "optional": true},
+            "verticalFit": {"type": "string", "description": "Vertical fit mode ('Unconstrained', 'MinSize', 'PreferredSize').", "optional": true}
+        }
+    },
+    {
+        "commandType": "SetLayoutElementProperties",
+        "description": "Sets LayoutElement properties on a GameObject.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "minWidth": {"type": "number", "description": "Minimum width.", "optional": true},
+            "minHeight": {"type": "number", "description": "Minimum height.", "optional": true},
+            "preferredWidth": {"type": "number", "description": "Preferred width.", "optional": true},
+            "preferredHeight": {"type": "number", "description": "Preferred height.", "optional": true},
+            "flexibleWidth": {"type": "number", "description": "Flexible width.", "optional": true},
+            "flexibleHeight": {"type": "number", "description": "Flexible height.", "optional": true},
+            "layoutPriority": {"type": "integer", "description": "Layout priority.", "optional": true}
+        }
+    },
+    {
+        "commandType": "AddClickListener",
+        "description": "Adds a click event listener to a Button component.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject with a Button component."},
+            "methodName": {"type": "string", "description": "Name of the public method to invoke (must be on a component of 'methodTargetGameObject')."},
+            "methodTargetGameObject": {"type": "string", "description": "Name or ID of the GameObject containing the component with the method. Defaults to 'target' if not specified.", "optional": true}
+        }
+    },
+    {
+        "commandType": "DefineStyle",
+        "description": "Defines a reusable UI style with specified properties.",
+        "parameters": {
+            "styleName": {"type": "string", "description": "Unique name for the style."},
+            "color": {"type": "array", "items": {"type": "number"}, "description": "[r, g, b, a] Text color (0-1).", "optional": true},
+            "fontAssetPath": {"type": "string", "description": "Path to TextMeshPro font asset (e.g., 'Assets/Fonts/MyFont.asset').", "optional": true},
+            "fontSize": {"type": "number", "description": "Font size.", "optional": true},
+            "alignment": {"type": "string", "description": "Text alignment (e.g., 'Left', 'Center', 'Right').", "optional": true},
+            "backgroundColor": {"type": "array", "items": {"type": "number"}, "description": "[r, g, b, a] Background image color (0-1).", "optional": true},
+            "backgroundSpritePath": {"type": "string", "description": "Path to background sprite asset (e.g., 'Assets/Sprites/MyBackground.png').", "optional": true}
+        }
+    },
+    {
+        "commandType": "ApplyStyle",
+        "description": "Applies a defined UI style to a target GameObject.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "styleName": {"type": "string", "description": "Name of the style to apply (must be defined first)."}
+        }
+    },
+    {
+        "commandType": "BindProperty",
+        "description": "Binds a UI component property to a property of a source component on another GameObject.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target UI GameObject."},
+            "uiComponentType": {"type": "string", "description": "Type of the UI component on the target (e.g., 'TextMeshProUGUI', 'Slider')."},
+            "uiProperty": {"type": "string", "description": "Name of the property on the UI component to bind (e.g., 'text', 'value')."},
+            "dataSourceGameObject": {"type": "string", "description": "Name or ID of the GameObject containing the data source component."},
+            "dataSourceComponentType": {"type": "string", "description": "Type of the component on the data source GameObject (e.g., 'PlayerStats', 'GameManager')."},
+            "dataSourceProperty": {"type": "string", "description": "Name of the property on the data source component to bind from (e.g., 'health', 'score')."}
+        }
+    },
+    {
+        "commandType": "CreateLight",
+        "description": "Creates a Light in the scene.",
+        "parameters": {
+            "name": {"type": "string", "description": "Light Name."},
+            "lightType": {"type": "string", "description": "Light type ('Directional', 'Point', 'Spot', 'Area').", "optional": true},
+            "position": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] World position.", "optional": true},
+            "lightColor": {"type": "array", "items": {"type": "number"}, "description": "[r, g, b, a] Light color (0-1).", "optional": true},
+            "lightIntensity": {"type": "number", "description": "Light intensity.", "optional": true}
+        }
+    },
+    {
+        "commandType": "CompileScripts",
+        "description": "Compiles all scripts in the project.",
+        "parameters": {}
+    },
+    {
+        "commandType": "GetMaterialInfo",
+        "description": "Gets information about a material.",
+        "parameters": {
+            "materialPath": {"type": "string", "description": "Path to the material asset."}
+        }
+    },
+    {
+        "commandType": "CreateMaterial",
+        "description": "Creates a new material asset.",
+        "parameters": {
+            "materialPath": {"type": "string", "description": "Path to create the material asset."},
+            "shader": {"type": "string", "description": "Name of the shader to use (e.g., 'Standard', 'Unlit/Color').", "optional": true}
+        }
+    },
+    {
+        "commandType": "SetMaterialColor",
+        "description": "Sets the color property of a material.",
+        "parameters": {
+            "materialTarget": {"type": "string", "description": "Path to the material asset or name of GameObject with material."},
+            "materialSearchMethod": {"type": "string", "description": "Method to find material target ('by_path', 'by_gameobject_name').", "optional": true},
+            "materialProperty": {"type": "string", "description": "Name of the color property (e.g., '_Color', '_BaseColor')."},
+            "materialColor": {"type": "array", "items": {"type": "number"}, "description": "[r, g, b, a] Color values (0-1)."}
+        }
+    },
+    {
+        "commandType": "SetMaterialProperty",
+        "description": "Sets a generic property of a material.",
+        "parameters": {
+            "materialTarget": {"type": "string", "description": "Path to the material asset or name of GameObject with material."},
+            "materialSearchMethod": {"type": "string", "description": "Method to find material target ('by_path', 'by_gameobject_name').", "optional": true},
+            "materialProperty": {"type": "string", "description": "Name of the property to set."},
+            "materialValue": {"type": "string", "description": "Value to set the property to (string representation)."}
+        }
+    },
+    {
+        "commandType": "AssignMaterialToRenderer",
+        "description": "Assigns a material to a GameObject's renderer.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "materialPath": {"type": "string", "description": "Path to the material asset to assign."},
+            "slot": {"type": "integer", "description": "Material slot index (default 0).", "optional": true}
+        }
+    },
+    {
+        "commandType": "SetRendererColor",
+        "description": "Sets the color of a GameObject's renderer (for materials with a main color property).",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "materialColor": {"type": "array", "items": {"type": "number"}, "description": "[r, g, b, a] Color values (0-1)."}
+        }
+    },
+    {
+        "commandType": "CreateTexture",
+        "description": "Creates a texture asset.",
+        "parameters": {
+            "path": {"type": "string", "description": "Texture asset path to create."},
+            "textureWidth": {"type": "integer", "description": "Width of the texture.", "optional": true},
+            "textureHeight": {"type": "integer", "description": "Height of the texture.", "optional": true},
+            "textureColor": {"type": "array", "items": {"type": "number"}, "description": "[r, g, b, a] Solid color for the texture.", "optional": true},
+            "texturePattern": {"type": "string", "description": "Pattern for the texture (e.g., 'checkerboard', 'stripes').", "optional": true},
+            "texturePalette": {"type": "array", "items": {"type": "number"}, "description": "Palette colors for pattern texture (RGBA float arrays).", "optional": true}
+        }
+    },
+    {
+        "commandType": "ModifyTexture",
+        "description": "Modifies pixels of a texture.",
+        "parameters": {
+            "path": {"type": "string", "description": "Texture asset path to modify."},
+            "x": {"type": "integer", "description": "Start X coordinate."},
+            "y": {"type": "integer", "description": "Start Y coordinate."},
+            "textureWidth": {"type": "integer", "description": "Width of area to modify."},
+            "textureHeight": {"type": "integer", "description": "Height of area to modify."},
+            "textureColor": {"type": "array", "items": {"type": "number"}, "description": "[r, g, b, a] Solid color fill for the area.", "optional": true},
+            "pixels": {"type": "array", "items": {"type": "number"}, "description": "Array of RGBA float values for pixel data.", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreateParticleSystem",
+        "description": "Creates a Particle System.",
+        "parameters": {
+            "name": {"type": "string", "description": "Particle System Name."},
+            "position": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] World position.", "optional": true},
+            "duration": {"type": "number", "description": "Duration of the particle system.", "optional": true},
+            "startLifetime": {"type": "number", "description": "Start lifetime of particles.", "optional": true},
+            "startSpeed": {"type": "number", "description": "Start speed of particles.", "optional": true}
+        }
+    },
+    {
+        "commandType": "FindShader",
+        "description": "Finds a shader.",
+        "parameters": {
+            "shaderName": {"type": "string", "description": "Shader Name to find."}
+        }
+    },
+    {
+        "commandType": "GetShaderParameters",
+        "description": "Gets a list of shader parameters.",
+        "parameters": {
+            "shaderName": {"type": "string", "description": "Shader Name to get parameters from."}
+        }
+    },
+    {
+        "commandType": "CreateScriptableObject",
+        "description": "Creates a ScriptableObject asset.",
+        "parameters": {
+            "typeName": {"type": "string", "description": "Type name of ScriptableObject to create."},
+            "folderPath": {"type": "string", "description": "Folder path to create in."},
+            "assetName": {"type": "string", "description": "Asset Name."},
+            "overwrite": {"type": "boolean", "description": "Overwrite existing asset.", "optional": true},
+            "patches": {"type": "array", "items": {"$ref": "#/definitions/Patch"}, "description": "Array of property patches to apply.", "optional": true}
+        }
+    },
+    {
+        "commandType": "ModifyScriptableObject",
+        "description": "Modifies properties of a ScriptableObject asset.",
+        "parameters": {
+            "assetPath": {"type": "string", "description": "ScriptableObject asset path to modify."},
+            "patches": {"type": "array", "items": {"$ref": "#/definitions/Patch"}, "description": "Array of property patches to apply."}
+        }
+    },
+    {
+        "commandType": "ExecuteBatch",
+        "description": "Executes multiple commands sequentially.",
+        "parameters": {
+            "batch": {"type": "array", "items": {"$ref": "#/definitions/GroqUnityCommand"}, "description": "Array of GroqUnityCommand objects to execute."},
+            "breakOnError": {"type": "boolean", "description": "If true, stops execution if any command in the batch fails.", "optional": true}
+        }
+    },
+    {
+        "commandType": "PlayEditor",
+        "description": "Switches Unity Editor to Play mode.",
+        "parameters": {}
+    },
+    {
+        "commandType": "PauseEditor",
+        "description": "Pauses/resumes Unity Editor Play mode.",
+        "parameters": {}
+    },
+    {
+        "commandType": "StopEditor",
+        "description": "Stops Unity Editor Play mode.",
+        "parameters": {}
+    },
+    {
+        "commandType": "AddTag",
+        "description": "Adds a new tag to project settings.",
+        "parameters": {
+            "tagName": {"type": "string", "description": "Tag Name to add."}
+        }
+    },
+    {
+        "commandType": "RemoveTag",
+        "description": "Removes a tag from project settings.",
+        "parameters": {
+            "tagName": {"type": "string", "description": "Tag Name to remove."}
+        }
+    },
+    {
+        "commandType": "AddLayer",
+        "description": "Adds a new layer to project settings.",
+        "parameters": {
+            "layerName": {"type": "string", "description": "Layer Name to add."}
+        }
+    },
+    {
+        "commandType": "ExecuteMenuItem",
+        "description": "Executes a Unity Editor menu item.",
+        "parameters": {
+            "menuPath": {"type": "string", "description": "Menu item path (e.g., 'GameObject/Create Empty')."}
+        }
+    },
+    {
+        "commandType": "CreatePrefab",
+        "description": "Creates a prefab from a GameObject.",
+        "parameters": {
+            "target": {"type": "string", "description": "Source GameObject Name."},
+            "assetPath": {"type": "string", "description": "Prefab asset path to create (e.g., 'Assets/Prefabs/MyPrefab.prefab')."}
+        }
+    },
+    {
+        "commandType": "InstantiatePrefab",
+        "description": "Instantiates a prefab in the scene.",
+        "parameters": {
+            "assetPath": {"type": "string", "description": "Prefab asset path to instantiate."},
+            "name": {"type": "string", "description": "Instance Name.", "optional": true},
+            "position": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] World position.", "optional": true},
+            "rotation": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] Euler angles rotation.", "optional": true}
+        }
+    }
+]
