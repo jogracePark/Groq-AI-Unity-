@@ -204,7 +204,8 @@
             "parent": {"type": "string", "description": "Parent UI GameObject Name."},
             "uiText": {"type": "string", "description": "Text content to display.", "optional": true},
             "uiPosition": {"type": "array", "items": {"type": "number"}, "description": "[x, y] UI anchored position.", "optional": true},
-            "fontAssetPath": {"type": "string", "description": "Path to TextMeshPro font asset (e.g., 'Assets/Fonts/MyFont.asset').", "optional": true}
+            "fontAssetPath": {"type": "string", "description": "Path to TextMeshPro font asset (e.g., 'Assets/Fonts/MyFont.asset').", "optional": true},
+            "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
         }
     },
     {
@@ -213,7 +214,8 @@
         "parameters": {
             "name": {"type": "string", "description": "Button Name."},
             "parent": {"type": "string", "description": "Parent UI GameObject Name."},
-            "uiText": {"type": "string", "description": "Text to display on button.", "optional": true}
+            "uiText": {"type": "string", "description": "Text to display on button.", "optional": true},
+            "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
         }
     },
     {
@@ -222,7 +224,8 @@
         "parameters": {
             "name": {"type": "string", "description": "Image Name."},
             "parent": {"type": "string", "description": "Parent UI GameObject Name."},
-            "uiSprite": {"type": "string", "description": "Sprite asset path (e.g., 'Assets/Sprites/my_sprite.png').", "optional": true}
+            "uiSprite": {"type": "string", "description": "Sprite asset path (e.g., 'Assets/Sprites/my_sprite.png').", "optional": true},
+            "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
         }
     },
     {
@@ -234,7 +237,8 @@
             "uiText": {"type": "string", "description": "Text to display next to the toggle.", "optional": true},
             "uiPosition": {"type": "array", "items": {"type": "number"}, "description": "[x, y] UI anchored position.", "optional": true},
             "sizeDelta": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of the toggle.", "optional": true},
-            "isOn": {"type": "boolean", "description": "Initial state of the toggle (true for on, false for off).", "optional": true}
+            "isOn": {"type": "boolean", "description": "Initial state of the toggle (true for on, false for off).", "optional": true},
+            "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
         }
     },
     {
@@ -248,7 +252,8 @@
             "minValue": {"type": "number", "description": "Minimum value of the slider.", "optional": true},
             "maxValue": {"type": "number", "description": "Maximum value of the slider.", "optional": true},
             "value": {"type": "number", "description": "Current value of the slider.", "optional": true},
-            "wholeNumbers": {"type": "boolean", "description": "If true, the slider will only use whole numbers.", "optional": true}
+            "wholeNumbers": {"type": "boolean", "description": "If true, the slider will only use whole numbers.", "optional": true},
+            "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
         }
     },
     {
@@ -261,7 +266,8 @@
             "sizeDelta": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of the scroll view.", "optional": true},
             "contentName": {"type": "string", "description": "Name for the content GameObject inside the scroll view.", "optional": true},
             "horizontal": {"type": "boolean", "description": "Enable horizontal scrolling.", "optional": true},
-            "vertical": {"type": "boolean", "description": "Enable vertical scrolling.", "optional": true}
+            "vertical": {"type": "boolean", "description": "Enable vertical scrolling.", "optional": true},
+            "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
         }
     },
     {
@@ -274,7 +280,8 @@
             "sizeDelta": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of the input field.", "optional": true},
             "placeholderText": {"type": "string", "description": "Text to display when the input field is empty.", "optional": true},
             "contentType": {"type": "string", "description": "Type of content allowed (e.g., 'Standard', 'Autocorrected', 'IntegerNumber').", "optional": true},
-            "characterLimit": {"type": "integer", "description": "Maximum number of characters allowed.", "optional": true}
+            "characterLimit": {"type": "integer", "description": "Maximum number of characters allowed.", "optional": true},
+            "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
         }
     },
     {
@@ -285,7 +292,8 @@
             "parent": {"type": "string", "description": "Parent UI GameObject Name."},
             "uiPosition": {"type": "array", "items": {"type": "number"}, "description": "[x, y] UI anchored position.", "optional": true},
             "sizeDelta": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of the dropdown.", "optional": true},
-            "options": {"type": "array", "items": {"type": "string"}, "description": "Array of string options for the dropdown.", "optional": true}
+            "options": {"type": "array", "items": {"type": "string"}, "description": "Array of string options for the dropdown.", "optional": true},
+            "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
         }
     },
     {
@@ -595,55 +603,104 @@
             "assetPath": {"type": "string", "description": "Prefab asset path to instantiate."},
             "name": {"type": "string", "description": "Instance Name.", "optional": true},
             "position": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] World position.", "optional": true},
-            "rotation": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] Euler angles rotation.", "optional": true}
+            "rotation": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] Euler angles rotation.", "optional": true},
+            "scale": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] Local scale.", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreatePanel",
+        "description": "Creates a UI Panel (GameObject with RectTransform and Image component).",
+        "parameters": {
+            "name": {"type": "string", "description": "Panel Name."},
+            "parent": {"type": "string", "description": "Parent UI GameObject Name."},
+            "uiPosition": {"type": "array", "items": {"type": "number"}, "description": "[x, y] UI anchored position.", "optional": true},
+            "sizeDelta": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of the panel.", "optional": true},
+            "anchorPreset": {"type": "string", "description": "Anchor preset for the RectTransform (e.g., 'StretchAll', 'MiddleCenter').", "optional": true},
+            "padding": {"type": "array", "items": {"type": "number"}, "description": "[left, right, top, bottom] padding values. Only applies to stretched anchors.", "optional": true},
+            "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
+        }
+    },
+    {
+        "commandType": "CreateRawImage",
+        "description": "Creates a UI RawImage.",
+        "parameters": {
+            "name": {"type": "string", "description": "RawImage Name."},
+            "parent": {"type": "string", "description": "Parent UI GameObject Name."},
+            "texturePath": {"type": "string", "description": "Path to the Texture asset (e.g., 'Assets/Textures/MyTexture.png').", "optional": true},
+            "uiPosition": {"type": "array", "items": {"type": "number"}, "description": "[x, y] UI anchored position.", "optional": true},
+            "sizeDelta": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of the RawImage.", "optional": true},
+            "anchorPreset": {"type": "string", "description": "Anchor preset for the RectTransform (e.g., 'StretchAll', 'MiddleCenter').", "optional": true},
+            "padding": {"type": "array", "items": {"type": "number"}, "description": "[left, right, top, bottom] padding values. Only applies to stretched anchors.", "optional": true},
+            "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
+        }
+    },
+    {
+        "commandType": "AddVerticalLayoutGroup",
+        "description": "Adds a VerticalLayoutGroup component to a GameObject and configures it.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "padding": {"type": "array", "items": {"type": "number"}, "description": "[left, right, top, bottom] padding for the layout group.", "optional": true},
+            "spacing": {"type": "number", "description": "Spacing between child elements.", "optional": true},
+            "childAlignment": {"type": "string", "description": "Child alignment for layout groups (e.g., 'UpperLeft', 'MiddleCenter').", "optional": true},
+            "childControlWidth": {"type": "boolean", "description": "If true, children's width will be controlled by the layout group.", "optional": true},
+            "childControlHeight": {"type": "boolean", "description": "If true, children's height will be controlled by the layout group.", "optional": true},
+            "childForceExpandWidth": {"type": "boolean", "description": "If true, children will be forced to expand their width.", "optional": true},
+            "childForceExpandHeight": {"type": "boolean", "description": "If true, children will be forced to expand their height.", "optional": true}
+        }
+    },
+    {
+        "commandType": "AddHorizontalLayoutGroup",
+        "description": "Adds a HorizontalLayoutGroup component to a GameObject and configures it.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "padding": {"type": "array", "items": {"type": "number"}, "description": "[left, right, top, bottom] padding for the layout group.", "optional": true},
+            "spacing": {"type": "number", "description": "Spacing between child elements.", "optional": true},
+            "childAlignment": {"type": "string", "description": "Child alignment for layout groups (e.g., 'UpperLeft', 'MiddleCenter').", "optional": true},
+            "childControlWidth": {"type": "boolean", "description": "If true, children's width will be controlled by the layout group.", "optional": true},
+            "childControlHeight": {"type": "boolean", "description": "If true, children's height will be controlled by the layout group.", "optional": true},
+            "childForceExpandWidth": {"type": "boolean", "description": "If true, children will be forced to expand their width.", "optional": true},
+            "childForceExpandHeight": {"type": "boolean", "description": "If true, children will be forced to expand their height.", "optional": true}
+        }
+    },
+    {
+        "commandType": "AddGridLayoutGroup",
+        "description": "Adds a GridLayoutGroup component to a GameObject and configures it.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "padding": {"type": "array", "items": {"type": "number"}, "description": "[left, right, top, bottom] padding for the layout group.", "optional": true},
+            "spacing": {"type": "number", "description": "Spacing between cells.", "optional": true},
+            "childAlignment": {"type": "string", "description": "Child alignment for layout groups (e.g., 'UpperLeft', 'MiddleCenter').", "optional": true},
+            "cellSize": {"type": "array", "items": {"type": "number"}, "description": "[width, height] Size of each cell.", "optional": true},
+            "startCorner": {"type": "string", "description": "Start corner for GridLayoutGroup ('UpperLeft', 'UpperRight', 'LowerLeft', 'LowerRight').", "optional": true},
+            "startAxis": {"type": "string", "description": "Start axis for GridLayoutGroup ('Horizontal', 'Vertical').", "optional": true},
+            "constraint": {"type": "string", "description": "Constraint for GridLayoutGroup ('Flexible', 'FixedColumnCount', 'FixedRowCount').", "optional": true},
+            "constraintCount": {"type": "integer", "description": "Constraint count for GridLayoutGroup.", "optional": true}
+        }
+    },
+    {
+        "commandType": "AddCanvasGroup",
+        "description": "Adds a CanvasGroup component to a GameObject and configures it.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "alpha": {"type": "number", "description": "The alpha value of the CanvasGroup (0-1).", "optional": true},
+            "interactable": {"type": "boolean", "description": "If true, the CanvasGroup allows interaction.", "optional": true},
+            "blocksRaycasts": {"type": "boolean", "description": "If true, the CanvasGroup blocks raycasts.", "optional": true},
+            "ignoreParentGroups": {"type": "boolean", "description": "If true, this CanvasGroup ignores its parent CanvasGroups.", "optional": true}
+        }
+    },
+    {
+        "commandType": "AddMask",
+        "description": "Adds a Mask component to a GameObject and configures it.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "showMaskGraphic": {"type": "boolean", "description": "If true, the graphic used for masking will be visible.", "optional": true}
+        }
+    },
+    {
+        "commandType": "AddRectMask2D",
+        "description": "Adds a RectMask2D component to a GameObject.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."}
         }
     }
- {
-   "commandType": "CreatePanel",
-   "description": "Creates a UI Panel (GameObject with RectTransform and Image component).",
-   "parameters": {
-     "name": {
-       "type": "string",
-       "description": "Panel Name."
-     },
-     "parent": {
-       "type": "string",
-       "description": "Parent UI GameObject Name."
-     },
-     "uiPosition": {
-       "type": "array",
-       "items": {
-         "type": "number"
-       },
-       "description": "[x, y] UI anchored position.",
-       "optional": true
-     },
-     "sizeDelta": {
-       "type": "array",
-       "items": {
-         "type": "number"
-       },
-       "description": "[width, height] Size of the panel.",
-       "optional": true
-     },
-     "anchorPreset": {
-       "type": "string",
-       "description": "Anchor preset for the RectTransform (e.g., 'StretchAll', 'MiddleCenter').",
-       "optional": true
-     },
-     "padding": {
-       "type": "array",
-       "items": {
-         "type": "number"
-       },
-       "description": "[left, right, top, bottom] padding values. Only applies to stretched anchors.",
-       "optional": true
-     },
-     "setActive": {
-       "type": "boolean",
-       "description": "Whether the GameObject should be active.",
-       "optional": true
-     }
-   }
- }
 ]
