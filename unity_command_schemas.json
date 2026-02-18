@@ -598,4 +598,52 @@
             "rotation": {"type": "array", "items": {"type": "number"}, "description": "[x, y, z] Euler angles rotation.", "optional": true}
         }
     }
+ {
+   "commandType": "CreatePanel",
+   "description": "Creates a UI Panel (GameObject with RectTransform and Image component).",
+   "parameters": {
+     "name": {
+       "type": "string",
+       "description": "Panel Name."
+     },
+     "parent": {
+       "type": "string",
+       "description": "Parent UI GameObject Name."
+     },
+     "uiPosition": {
+       "type": "array",
+       "items": {
+         "type": "number"
+       },
+       "description": "[x, y] UI anchored position.",
+       "optional": true
+     },
+     "sizeDelta": {
+       "type": "array",
+       "items": {
+         "type": "number"
+       },
+       "description": "[width, height] Size of the panel.",
+       "optional": true
+     },
+     "anchorPreset": {
+       "type": "string",
+       "description": "Anchor preset for the RectTransform (e.g., 'StretchAll', 'MiddleCenter').",
+       "optional": true
+     },
+     "padding": {
+       "type": "array",
+       "items": {
+         "type": "number"
+       },
+       "description": "[left, right, top, bottom] padding values. Only applies to stretched anchors.",
+       "optional": true
+     },
+     "setActive": {
+       "type": "boolean",
+       "description": "Whether the GameObject should be active.",
+       "optional": true
+     }
+   }
+ }
 ]
