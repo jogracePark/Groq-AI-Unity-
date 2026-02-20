@@ -281,6 +281,7 @@
             "placeholderText": {"type": "string", "description": "Text to display when the input field is empty.", "optional": true},
             "contentType": {"type": "string", "description": "Type of content allowed (e.g., 'Standard', 'Autocorrected', 'IntegerNumber').", "optional": true},
             "characterLimit": {"type": "integer", "description": "Maximum number of characters allowed.", "optional": true},
+            "fontAssetPath": {"type": "string", "description": "Path to TextMeshPro font asset (e.g., 'Assets/Fonts/MyFont.asset').", "optional": true},
             "setActive": {"type": "boolean", "description": "Whether the GameObject should be active.", "optional": true}
         }
     },
@@ -356,6 +357,21 @@
             "flexibleWidth": {"type": "number", "description": "Flexible width.", "optional": true},
             "flexibleHeight": {"type": "number", "description": "Flexible height.", "optional": true},
             "layoutPriority": {"type": "integer", "description": "Layout priority.", "optional": true}
+        }
+    },
+    {
+        "commandType": "AddLayoutElement",
+        "description": "Adds a LayoutElement component to a GameObject and configures it.",
+        "parameters": {
+            "target": {"type": "string", "description": "Name or ID of the target GameObject."},
+            "minWidth": {"type": "number", "description": "Minimum width.", "optional": true},
+            "minHeight": {"type": "number", "description": "Minimum height.", "optional": true},
+            "preferredWidth": {"type": "number", "description": "Preferred width.", "optional": true},
+            "preferredHeight": {"type": "number", "description": "Preferred height.", "optional": true},
+            "flexibleWidth": {"type": "number", "description": "Flexible width.", "optional": true},
+            "flexibleHeight": {"type": "number", "description": "Flexible height.", "optional": true},
+            "layoutPriority": {"type": "integer", "description": "Layout priority.", "optional": true},
+            "ignoreLayout": {"type": "boolean", "description": "If true, this element is ignored by layout groups.", "optional": true}
         }
     },
     {
